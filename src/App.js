@@ -1,22 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import high from './img/high.png';
+import mid from './img/mid.png';
+import low from './img/low.png';
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>{count}</h2>
+        <div className="container">
+          <button className="button_row" onClick={() => setCount(count - 1)}>
+            <img src={high}></img>
+          </button>
+          <button className="button_row" >
+            <img src={mid}></img>
+          </button>
+          <button className="button_row" onClick={() => setCount(count + 1)}>
+            <img src={low}></img>
+          </button>
+
+          <button className="" onClick={() => setCount(0)}>
+            reset
+          </button>
+        </div>
       </header>
     </div>
   );
